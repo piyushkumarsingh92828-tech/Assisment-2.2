@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Product Filter</title>
+</head>
+<body>
+
+  <h2>Product Filter</h2>
+
+  
+  <select id="filter">
+    <option value="all">All</option>
+    <option value="shoes">Shoes</option>
+    <option value="shirts">Shirts</option>
+    <option value="gadgets">gadgets</option>
+  </select>
+
+  
+  <ul id="products">
+    <li data-category="shoes">Nike Shoes</li>
+    <li data-category="shoes">Adidas Shoes</li>
+    <li data-category="shirts">Casual Shirt</li>
+    <li data-category="shirts">Formal Shirt</li>
+    <li data-category="gadgets">Smart phone</li>
+    <li data-category="gadgets">Smart watch</li>
+  </ul>
+
+  <script>
+    let dropdown = document.getElementById("filter");
+    let items = document.querySelectorAll("#products li");
+
+    dropdown.addEventListener("change", function() {
+      let value = this.value;
+
+      items.forEach(function(item) {
+        if (value === "all" || item.dataset.category === value) {
+          item.style.display = "list-item";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
